@@ -1,0 +1,54 @@
+
+@font-face {
+  font-family: 'gill sans';
+  src: url('./fonts/gill_sans/Gill_Sans_Medium.otf');
+  font-weight: normal;
+  font-style: normal; 
+}
+
+
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+canvas {
+  display: block;
+}
+
+h1 {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+}
+
+h2 {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 30px;
+}
+
+.text h1 {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 0px;
+}
+
+.text h2 {
+    display: flex;
+    justify-content: center;
+}
+
+.banner {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.banner .img {
+    max-height: 10px;
+    max-width: 100px;
+}
+
+#canvas-container {
+    padding-bottom: 10px;
+}
