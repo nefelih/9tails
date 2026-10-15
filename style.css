@@ -19,36 +19,39 @@ canvas {
 
 h1 {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-
+    font-size: large;
 }
 
 h2 {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 30px;
+    font-size: large;
 }
 
 .text h1 {
     display: flex;
     justify-content: center;
-    padding-bottom: 0px;
 }
 
 .text h2 {
     display: flex;
     justify-content: center;
+    padding-top: 1vh;
 }
 
 .banner {
+
     display: flex;
-    width: 100%;
     justify-content: center;
 }
 
-.banner .img {
-    max-height: 10px;
-    max-width: 100px;
+.banner img {
+    width: 50vw;
+    max-height: autp;
+    max-width: 50vw;
+    padding-bottom: 0;
 }
 
 #canvas-container {
-    padding-bottom: 10px;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
 }

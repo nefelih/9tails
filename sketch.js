@@ -12,7 +12,7 @@ function preload(){
 }
 
 function setup() {
-  let canvas = createCanvas(windowWidth, windowHeight);
+  let canvas = createCanvas(windowWidth, windowHeight-250);
   canvas.parent('canvas-container');
   current_img = random(images);
   // textFont(font);
@@ -32,7 +32,7 @@ function draw() {
   translate(width/2, height/2)
   if (current_img){
     imageMode(CENTER);
-    image(current_img, 0, 0, w-30, h-30);
+    image(current_img, 0, 0, w, h);
   }
 }
 
