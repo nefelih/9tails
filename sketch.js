@@ -24,6 +24,7 @@ function windowResized() {
 }
 
 function draw() {
+  background(255);
   let scaleRatio = min(width/current_img.width, height/current_img.height);
   let w = current_img.width * scaleRatio;
   let h = current_img.height * scaleRatio;
