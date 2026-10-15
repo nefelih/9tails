@@ -13,7 +13,6 @@ function preload(){
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  imageMode(CENTER);
   current_img = random(images);
   textFont(font);
   textSize(50);
@@ -26,10 +25,10 @@ function windowResized() {
 function draw() {
 
   // background(129, 228, 218);
-  text("hi this is for ian", 20, 10);
-  text("i guess if u are not ian u can hang", 20, 18);
+  translate(width/2, height/2)
   if (current_img){
-    image(current_img, width/4, height/4, 500, 700);
+    imageMode(CENTER);
+    image(current_img, 0, 0, 500, 700);
   }
 }
 
