@@ -90,5 +90,7 @@ function mousePressed() {
 function touchStarted() {
   current_img = random(images);
   target_scale = 1.05;
+  prev_angle = rotation_angle;
+  rotation_angle += random(-6,6);
   return false;
 }
