@@ -37,7 +37,7 @@ function draw() {
 }
 
 let counter = 0;
-function mousePressed() {
+function mouseClicked(fxn) {
   current_img = random(images);
 }
 
