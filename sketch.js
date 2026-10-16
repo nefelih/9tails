@@ -64,7 +64,7 @@ function draw() {
     rect(0-((w-4)/2), 0-(h/2), w-4, h, border/2);
   }
   else{
-    rect(0-(w/2), 0-(h/2), w, h, border/3);
+    rect(0-(w/2), 0-(h/2), w, h, border/2.6);
   }
   
   endClip();
