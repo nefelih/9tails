@@ -40,3 +40,7 @@ let counter = 0;
 function mousePressed() {
   current_img = random(images);
 }
+
+function touchStarted(fxn){
+  current_img = random(images);
+}
