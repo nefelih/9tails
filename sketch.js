@@ -83,10 +83,10 @@ function draw() {
   //clipping mask
   beginClip();
   if (current_card == cards[32]){
-    rect(0-((w-4)/2), 0-(h/2), w-4, h, y_border/5);
+    rect(0-((w-4)/2), 0-(h/2), w-4, h, 40);
   }
   else{
-    rect(0-((w-1)/2), 0-((h-1)/2), w, h, y_border/6);
+    rect(0-((w-1)/2), 0-((h-1)/2), w, h, 32);
   }
   endClip();
 
@@ -112,7 +112,12 @@ function draw() {
   let banner_h = current_banner.height * scale_ratio;
 
   if(current_banner){
-    image(current_banner, 0, 0, banner_w, banner_h);
+    if (current_card == cards[32]){
+      image(current_banner, -120, 0, banner_w, banner_h);
+    }
+    else{
+      image(current_banner, 0, 0, banner_w, banner_h);
+    }
   }
   // image(banners[1], 0, 0);
 
