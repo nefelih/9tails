@@ -56,7 +56,7 @@ function windowResized() {
 }
 
 function draw() {
-  background(200);
+  background(255);
 
   push();
 
