@@ -56,7 +56,7 @@ function windowResized() {
 }
 
 function draw() {
-  background(255);
+  background(200);
 
   push();
 
@@ -79,14 +79,14 @@ function draw() {
   //need additional push/pop so that the clipping mask does not affect banners
   push();
   rotate(prev_angle - rotation_angle);  
-
   //clipping mask
   beginClip();
   if (current_card == cards[32]){
-    rect(0-((w-4)/2), 0-(h/2), w-4, h, 40);
+    rect(0-((w-4)/2), 0-(h/2), w-4, h, h/35);
   }
   else{
-    rect(0-((w-1)/2), 0-((h-1)/2), w, h, 32);
+    rect(0-((w-1)/2), 0-((h-1)/2), w, h, h/20);
+    // rect(0-((w-1)/2), 0-((h-1)/2), w, h, 15);
   }
   endClip();
 
