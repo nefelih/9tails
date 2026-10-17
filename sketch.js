@@ -39,7 +39,7 @@ function preload(){
 
 function setup() {
   print("window height: " + windowHeight);
-  let canvas = createCanvas(windowWidth, windowHeight-(100));
+  let canvas = createCanvas(windowWidth, windowHeight-(windowHeight/8));
   canvas.parent('canvas-container');
   current_card = random(cards);
   current_banner = random(banners);
