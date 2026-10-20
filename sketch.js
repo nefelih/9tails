@@ -1,6 +1,7 @@
-
 let cards = [];
 let current_card;
+let visible_cards = [];
+let vis_cards_max = 3.0;
 
 let banners = [];
 let saved_banners = [];
@@ -18,6 +19,7 @@ let speed = 0.65;
 
 let prev_angle = 0.0;
 let rotation_angle = 0.0;
+let current_angle = 0.0;
 
 let banner_angle = 0.0;
 let banner_rot_angle = 0.0;
@@ -26,11 +28,11 @@ let banner_rot_angle = 0.0;
 
 function preload(){
   for (let i = 0; i < 63; i++) {
-    cards[i] = loadImage("./assets/ninetales_" + i + ".webp");
+    cards[i] = loadImage("./assets/card_art/ninetales_" + i + ".webp");
   }
 
   for (let i = 0; i < 9; i++){
-    banners[i] = loadImage("./extras/banner_" + i + ".png");
+    banners[i] = loadImage("./extras/banners/banner_" + i + ".png");
   }
 
   // font = loadFont('./fonts/pokemon/Pokemon_Solid.ttf');
@@ -48,7 +50,7 @@ function setup() {
   // textFont(font);
   // textSize(50);
 
-  // // banner.resize(350,0);
+  // banner.resize(350,0);
   // canvas_layer = createGraphics(windowWidth, windowHeight-100);
 }
 
@@ -70,6 +72,7 @@ function draw() {
 
   // background(129, 228, 218);
 
+
   card_scale = lerp(card_scale, target_scale, speed);
 
   if (card_scale > 1.045) {
@@ -79,20 +82,29 @@ function draw() {
 
   //need additional push/pop so that the clipping mask does not affect banners
   push();
-  rotate(prev_angle - rotation_angle);  
+  current_angle = prev_angle - rotation_angle;
+  rotate(current_angle);  
   //clipping mask
-  beginClip();
-  if (current_card == cards[32]){
-    rect(0-((w-4)/2), 0-(h/2), w-4, h, h/35);
-  }
-  else{
-    rect(0-((w-1)/2), 0-((h-1)/2), w, h, h/20);
-    // rect(0-((w-1)/2), 0-((h-1)/2), w, h, 15);
-  }
-  endClip();
+  // beginClip();
+  // if (current_card == cards[32]){
+  //   rect(0-((w-4)/2), 0-(h/2), w-4, h, h/35);
+  // }
+  // else{
+  //   rect(0-((w-1)/2), 0-((h-1)/2), w, h, h/20);
+  //   // rect(0-((w-1)/2), 0-((h-1)/2), w, h, 15);
+  // }
+  // endClip();
 
   if (current_card){
     image(current_card, 0, 0, w, h);
+    
+    // for (let i = 0; i < vis_cards_max; i++){
+    //   current_card = new Card(visible_cards[i], 0, 0, w, h, prev_angle - rotation_angle);
+    //   current_card.image();
+    // }
+    // for (let i = 0; i < vis_cards_max; i++){
+    //   image(visible_cards[i]);
+    // }
   }
 
   pop();
@@ -118,12 +130,12 @@ function draw() {
     }
     else{
       image(current_banner, 0, 0, banner_w, banner_h);
+
     }
   }
   // image(banners[1], 0, 0);
 
   pop();
-
 
   pop();
 
@@ -142,10 +154,17 @@ function draw() {
 
 
 function addBanner() {
-
+//TO DO at some point lol
 }
 
 function mousePressed() {
+  visible_cards.unshift([current_card, );
+  // print(visible_cards);
+
+  if (visible_cards.length > vis_cards_max){
+    visible_cards.pop();
+  }
+  
   current_card = random(cards);
   current_banner = random(banners);
   target_scale = 1.05;
@@ -170,3 +189,32 @@ function touchStarted() {
 
   return false;
 }
+
+// TO DO
+// add in webgl and map the images to a face of a card,
+// take what exists after the clipping mask, make that a new image/wrap
+//show the last three two cards underneath -> needs a different clipping mask function -> make it a separate function 
+    // make sure it doesnt look like things are apping out of existance behind it
+//if you double click on the card it does an animation <- way later down the line
+ //LOOKUP DRAWING CONTEXT.SAVE AND DRAWING CONTEXT . RESTORE
+// construct some more functions based on rotations and things
+
+//10.19 -> remove drop shadow work for right now
+// more important is the triple card layout
+
+  // push();
+  // fill(0,0,0,0);
+  // drawingContext.shadowOffsetX = 5;
+  // drawingContext.shadowOffsetY = -5;
+  // drawingContext.shadowBlur = 20;
+  // drawingContext.shadowColor = 'grey';
+  // rect(0-((w-1)/2), 0-((h-1)/2), w, h, h/20);
+  // pop(); 
+
+  //^fix this
+
+
+  //visible cards = an array
+  //when the sketch start ups populate the array with the current card, then push to the front
+  // USE UNSHIFT IN ARRAY CLASS TO MOVE IT FORWARD
+  // index at 0 will be the top most card
