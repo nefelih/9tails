@@ -26,27 +26,25 @@ let banner_rot_angle = 0.0;
 
 
 
-function preload(){
+async function setup() {
+
   for (let i = 0; i < 63; i++) {
-    cards[i] = loadImage("./assets/card_art/ninetales_" + i + ".webp");
+    cards[i] = await loadImage("./assets/card_art/ninetales_" + i + ".webp");
   }
 
   for (let i = 0; i < 9; i++){
-    banners[i] = loadImage("./extras/banners/banner_" + i + ".png");
+    banners[i] = await loadImage("./extras/banners/banner_" + i + ".png");
   }
 
-  // font = loadFont('./fonts/pokemon/Pokemon_Solid.ttf');
-
-}
-
-function setup() {
   print("window height: " + windowHeight);
-  let canvas = createCanvas(windowWidth, windowHeight-(windowHeight/8));
-  canvas.parent('canvas-container');
+  createCanvas(windowWidth, windowHeight-(windowHeight/8));
+  // canvas.parent('canvas-container');
   current_card = random(cards);
   current_banner = random(banners);
   angleMode(DEGREES);
   imageMode(CENTER);
+
+  // font = loadFont('./fonts/pokemon/Pokemon_Solid.ttf');
   // textFont(font);
   // textSize(50);
 
@@ -84,16 +82,16 @@ function draw() {
   push();
   current_angle = prev_angle - rotation_angle;
   rotate(current_angle);  
-  //clipping mask
-  // beginClip();
-  // if (current_card == cards[32]){
-  //   rect(0-((w-4)/2), 0-(h/2), w-4, h, h/35);
-  // }
-  // else{
-  //   rect(0-((w-1)/2), 0-((h-1)/2), w, h, h/20);
-  //   // rect(0-((w-1)/2), 0-((h-1)/2), w, h, 15);
-  // }
-  // endClip();
+  // clipping mask
+  beginClip();
+  if (current_card == cards[32]){
+    rect(0-((w-4)/2), 0-(h/2), w-4, h, h/35);
+  }
+  else{
+    rect(0-((w-1)/2), 0-((h-1)/2), w, h, h/20);
+    // rect(0-((w-1)/2), 0-((h-1)/2), w, h, 15);
+  }
+  endClip();
 
   if (current_card){
     image(current_card, 0, 0, w, h);
@@ -158,12 +156,12 @@ function addBanner() {
 }
 
 function mousePressed() {
-  visible_cards.unshift([current_card, );
-  // print(visible_cards);
+  // visible_cards.unshift([current_card);
+  // // print(visible_cards);
 
-  if (visible_cards.length > vis_cards_max){
-    visible_cards.pop();
-  }
+  // if (visible_cards.length > vis_cards_max){
+  //   visible_cards.pop();
+  // }
   
   current_card = random(cards);
   current_banner = random(banners);
