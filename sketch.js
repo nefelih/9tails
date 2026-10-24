@@ -37,8 +37,8 @@ async function setup() {
   }
 
   print("window height: " + windowHeight);
-  createCanvas(windowWidth, windowHeight-(windowHeight/8));
-  // canvas.parent('canvas-container');
+  let canvas = createCanvas(windowWidth, windowHeight-(windowHeight/8));
+  canvas.parent('canvas-container');
   current_card = random(cards);
   current_banner = random(banners);
   angleMode(DEGREES);
