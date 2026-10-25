@@ -188,6 +188,21 @@ function touchStarted() {
   return false;
 }
 
+function keyPressed() {
+  if (keyCode === 32) {
+    current_card = random(cards);
+    current_banner = random(banners);
+    target_scale = 1.05;
+    prev_angle = rotation_angle;
+    rotation_angle += random(-6,6);
+    
+    banner_angle = banner_rot_angle;
+    banner_rot_angle += random(-5,20);
+
+    return false;
+  }
+}
+
 // TO DO
 // add in webgl and map the images to a face of a card,
 // take what exists after the clipping mask, make that a new image/wrap
